@@ -1,0 +1,44 @@
+.register {
+  width: 30%;
+}
+
+.form_group {
+  width: 100%;
+}
+
+.form_input {
+  width: 100%;
+}
+
+input {
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #e6e6e6;
+  border: 1px solid #000;
+  color: #dcdcdc;
+}
+
+.form_button {
+  width: 100%;
+}
+
+.form_button-submit {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  background-color: #4169E1;
+  color: #e6e6e6;
+}
+
+.login {
+  margin: 0 auto;
+}
+
+span {
+  color: #e6e6e6;
+}
+
+span a {
+  color: #4169E1;
+  text-decoration: none;
+}

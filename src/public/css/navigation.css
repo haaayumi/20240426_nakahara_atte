@@ -1,0 +1,21 @@
+.header_nav {
+  justify-content: flex-end;
+}
+
+li a {
+  display: block;
+  text-decoration: none;
+  color: #000;
+}
+
+.header_list {
+  display: flex;
+}
+
+.header_content {
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  color: #000;
+  margin-left: 40px;
+}

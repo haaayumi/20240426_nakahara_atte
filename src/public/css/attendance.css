@@ -1,0 +1,16 @@
+.attendance {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.attendance-table_row {
+  border-top: solid 1px #dcdcdc;
+  padding: 20px 50px 20px 32px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.attendance-table_header {
+  font-weight: bold;
+  font-size: 18px;
+}
