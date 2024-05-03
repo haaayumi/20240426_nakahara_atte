@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StampController;
+use App\Http\Controllers\AttendanceController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,5 +17,7 @@ use App\Http\Controllers\StampController;
 */
 
 Route::get('/', [StampController::class, 'index']);
-
-
+Route::get('/attendance', [AttendanceController::class, 'index']);
+Route::middleware('auth')->group(function () {
+  Route::get('/auth/register', [AuthController::class, 'index']);
+});

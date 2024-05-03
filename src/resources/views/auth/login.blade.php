@@ -1,16 +1,19 @@
-@extends('layouts.default')
+@extends('layouts.app')
+
+@section('css')
+<link rel="stylesheet" href="{{ asset('css/login.css') }}">
 
 @section('page-title','ログイン')
 
 
 @section('content')
-  <form action="" class="register">
+  <form action="/login" class="login" method="post">
     <div class="form_group">
       <div class="form_input">
         <input type="email" class="email" name="email" value="" placeholder="メールアドレス">
       </div>
       <div class="form_input">
-        <input type="password" class="password" name="password" value="" placeholder="パスワード">
+        <input type="password" class="password" name="password" value="{{ old('email') }}" placeholder="パスワード">
       </div>
 
       <div class="form_button">

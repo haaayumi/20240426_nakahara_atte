@@ -4,7 +4,11 @@
 <link rel="stylesheet" href="{{ asset('css/attendance.css') }}">
 
 
-@section('page-title','Date')
+@section('page-title')
+  <span class="arrow left"></span>
+  Date
+  <span class="arrow right"></span>
+
 
 @section('content')
   <table class="attendance">
@@ -23,3 +27,4 @@
       <td class="attendance-table_item"></td>
     </tr>
   </table>
+@endsection

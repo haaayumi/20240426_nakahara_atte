@@ -1,3 +1,24 @@
+.arrow {
+  cursor: pointer;
+  font-size: 20px;
+  display: inline-block;
+  margin: 0 10px;
+  background-color: #fff;
+  border: 1px solid blue;
+}
+
+.arrow.left::before,.arrow.right::after {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-top: 3px solid blue;
+  border-right: 3px solid blue;
+  transform: rotate(45deg);
+}
+
+
+
 .attendance {
   width: 90%;
   margin: 0 auto;
