@@ -1,13 +1,15 @@
 @extends('layouts.app')
 
 @section('css')
-<link rel="stylesheet" href="{{ asset('css/attendance.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/attendance.css') }}">
+
 
 
 @section('page-title')
-  <span class="arrow left"></span>
-  Date
-  <span class="arrow right"></span>
+  <span class="arrow left"><a href="?ym={{ $prev }}"><</a></span>
+  <span>{{ $attendance_title }}</span>
+  <span class="arrow right"><a href="?ym={{ $next }}">></a></span>
+@endsection
 
 
 @section('content')
@@ -28,3 +30,4 @@
     </tr>
   </table>
 @endsection
+

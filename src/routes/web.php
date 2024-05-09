@@ -16,8 +16,24 @@ use App\Http\Controllers\AuthController;
 |
 */
 
-Route::get('/', [StampController::class, 'index']);
+// Route::get('/', [StampController::class, 'index']);
 Route::get('/attendance', [AttendanceController::class, 'index']);
+
+Route::get('/register', [AuthController::class, 'index'])->name('register');
+
 Route::middleware('auth')->group(function () {
-  Route::get('/auth/register', [AuthController::class, 'index']);
+  Route::get('/', [StampController::class, 'index']);
+
+
+Route::post('/register', [AuthController::class, 'register']);
+
 });
+// ログアウト
+Route::get('/logout', [StampController::class, 'logout']);
+
+
+Route::post('/stamp/attendancein', [StampController::class, 'attendancein']);
+Route::post('/stamp/attendanceout', [StampController::class, 'attendanceout']);
+Route::post('/stamp/breakin', [StampController::class, 'breakin']);
+Route::post('/stamp/breakout', [StampController::class, 'breakout']);
+

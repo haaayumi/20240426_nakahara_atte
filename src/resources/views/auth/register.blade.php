@@ -1,12 +1,17 @@
 @extends('layouts.app')
 
 @section('css')
-<link rel="stylesheet" href="{{ asset('css/register.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/register.css') }}">
+@endsection
 
-@section('page-title','会員登録' )
+
+@section('page-title')
+  会員登録
+@endsection
+
 
 @section('content')
-  <form action="/register" class="/register" method="post">
+  <form action="/register" class="register" method="post">
     @csrf
     <div class="form_group">
       <div class="form_input">
@@ -33,4 +38,6 @@
     </div>
 
   </form>
+
 @endsection
+

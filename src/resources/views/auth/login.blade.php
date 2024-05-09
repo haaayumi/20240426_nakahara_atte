@@ -2,12 +2,16 @@
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/login.css') }}">
+@endsection
 
-@section('page-title','ログイン')
+@section('page-title')
+ログイン
+@endsection
 
 
 @section('content')
   <form action="/login" class="login" method="post">
+    @csrf
     <div class="form_group">
       <div class="form_input">
         <input type="email" class="email" name="email" value="" placeholder="メールアドレス">
@@ -25,6 +29,8 @@
       <span>アカウントをお持ちのからはこちらから</span>
       <span><a href="/register">会員登録</a></span>
     </div>
-
   </form>
+
 @endsection
+
+

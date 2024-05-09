@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 
 class AuthController extends Controller
@@ -11,5 +12,12 @@ class AuthController extends Controller
         return view('/auth/register');
     }
 
-    
+    public function register(Request $request)
+    {
+        return redirect('/auth/login');
+    }
+
+
 }
+
+

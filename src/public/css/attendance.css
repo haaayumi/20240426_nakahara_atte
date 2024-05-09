@@ -5,18 +5,8 @@
   margin: 0 10px;
   background-color: #fff;
   border: 1px solid blue;
+  text-decoration: none;
 }
-
-.arrow.left::before,.arrow.right::after {
-  content: "";
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  border-top: 3px solid blue;
-  border-right: 3px solid blue;
-  transform: rotate(45deg);
-}
-
 
 
 .attendance {
