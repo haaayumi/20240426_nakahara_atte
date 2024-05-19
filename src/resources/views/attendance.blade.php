@@ -42,5 +42,10 @@
     </tr>
     @endforeach
   </table>
+
+  <div class="pagination-links">
+    {{ $attendances->links() }}
+  </div>
+
 @endsection
 

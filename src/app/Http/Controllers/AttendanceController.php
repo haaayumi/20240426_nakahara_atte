@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Attendance;
 use App\Models\Breaktime;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Pagination\Paginator;
 
 class AttendanceController extends Controller
 {
@@ -22,8 +23,10 @@ class AttendanceController extends Controller
         $next = date('Y-n-j',strtotime("+1 day", $base_date));
         $attendance_title = date("y-n-j", $base_date);
 
+        $attendances = Attendance::paginate(5);
+
         // 勤務開始・終了時間表示
-        $attendances = Attendance::where('attendance_date', $attendance_title)->get();
+        // $attendances = Attendance::where('attendance_date', $attendance_title)->get();
 
 
         // 休憩合計時間表示
