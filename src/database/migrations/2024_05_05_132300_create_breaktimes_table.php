@@ -15,9 +15,10 @@ class CreateBreaktimesTable extends Migration
     {
         Schema::create('breaktimes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->datetime('breakin')->nullable();
-            $table->datetime('breakout')->nullable();
+            $table->foreignId('attendance_id')->constrained()->cascadeOnDelete();
+            $table->time('break_in')->nullable();
+            $table->time('break_out')->nullable();
+            $table->integer('break_duration')->nullable();
             $table->timestamps();
         });
     }

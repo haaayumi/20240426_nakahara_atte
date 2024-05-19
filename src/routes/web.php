@@ -25,15 +25,17 @@ Route::middleware('auth')->group(function () {
   Route::get('/', [StampController::class, 'index']);
 
 
-Route::post('/register', [AuthController::class, 'register']);
+// Route::post('/register', [AuthController::class, 'register']);
 
 });
 // ログアウト
 Route::get('/logout', [StampController::class, 'logout']);
 
 
-Route::post('/stamp/attendancein', [StampController::class, 'attendancein']);
-Route::post('/stamp/attendanceout', [StampController::class, 'attendanceout']);
-Route::post('/stamp/breakin', [StampController::class, 'breakin']);
-Route::post('/stamp/breakout', [StampController::class, 'breakout']);
+Route::post('/stamp/attendance_in', [StampController::class, 'attendance_in']);
+Route::post('/stamp/attendance_out', [StampController::class, 'attendance_out']);
+Route::post('/stamp/break_in', [StampController::class, 'break_in']);
+Route::post('/stamp/break_out', [StampController::class, 'break_out']);
+
+// Route::get('/attendance', [AttendanceController::class, 'attendances']);
 

@@ -23,15 +23,18 @@ class StampController extends Controller
     }
 
     // 勤怠開始
-    public function attendancein(Request $request)
+    public function attendance_in(Request $request)
     {
         $user = Auth::user();
+        $attendance = Attendance::where('user_id', $user->id)->latest()->first();
 
-        $attendancein = now();
+        $attendance_in = now();
+        $attendance_date = now();
 
         $attendance = new Attendance();
         $attendance->user_id = $user->id;
-        $attendance->attendancein = $attendancein;
+        $attendance->attendance_in = $attendance_in;
+        $attendance->attendance_date = $attendance_date;
         $attendance->save();
 
         return redirect('/');
@@ -39,45 +42,46 @@ class StampController extends Controller
     }
 
     // 勤務終了
-    public function attendanceout(Request $request)
+    public function attendance_out(Request $request)
     {
         $user = Auth::user();
+        $attendance = Attendance::where('user_id', $user->id)->latest()->first();
 
-        $attendanceout = now();
-
-        $attendance = new Attendance();
-        $attendance->user_id = $user->id;
-        $attendance->attendanceout = $attendanceout;
-        $attendance->save();
+        if($attendance) {
+            $attendance->attendance_out = now();
+            $attendance->save();
+        }
 
         return redirect('/');
     }
 
     // 休憩開始
-    public function breakin(Request $request)
+    public function break_in(Request $request)
     {
         $user = Auth::user();
-
-        $breakin = now();
+        $break_in = now();
 
         $breaktime = new Breaktime();
-        $breaktime->user_id = $user->id;
-        $breaktime->breakin = $breakin;
+        $breaktime->attendance_id = $user->id;
+        $breaktime->break_in = $break_in;
+        $breaktime->break_duration = null;
         $breaktime->save();
 
         return redirect('/');
     }
 
     // 休憩終了
-    public function breakout(Request $request)
+    public function break_out(Request $request)
     {
         $user = Auth::user();
+        $breaktime = Breaktime::where('attendance_id', $user->id)->latest()->first();
 
-        $breakout = now();
 
-        $breaktime = new Breaktime();
-        $breaktime->user_id = $user->id;
-        $breaktime->breakout = $breakout;
+        $breaktime->break_out = $break_out = now();
+        $break_in = Breaktime::where('attendance_id', $user->id)->value('break_in');
+        $break_duration_seconds = now()->diffInSeconds($break_in);
+
+        $breaktime->break_duration = $break_duration_seconds;
         $breaktime->save();
 
         return redirect('/');
